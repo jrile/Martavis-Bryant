@@ -1,40 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./Tweet.css";
 import Twemoji from "react-twemoji";
-import processString from "react-process-string";
 
 function Tweet(props) {
 
-    const [text, setText] = useState(props.config.text);
-
-    useEffect(() => {
-        setText(processString(
-            [
-                {
-                    regex: /(?:^|[^a-zA-Z0-9_＠!@#$%&*])(?:(?:@|＠)(?!\/))([a-zA-Z0-9/_]{1,15})(?:\b(?!@|＠)|$)/,
-                    fn: (key, result) => {
-                        return <span key={key}> <span className="fake-link mention">@{result[1]}</span></span>;
-                    }
-                },
-                {
-                    regex: /(?:^|[^a-zA-Z0-9_＠!@#$%&*])(?:#(?!\/))([a-zA-Z0-9/_]{1,280})(?:\b(?!#)|$)/,
-                    fn: (key, result) => {
-                        return <span key={key}> <span className="fake-link mention"> #{result[1]}</span></span>;
-                    }
-                },
-                {
-                    regex: /(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/,
-                    fn: (key, result) => {
-                        return (
-                            <Twemoji key={key} options={{ className: "twemoji-bg" }} style={{display: "inline"}}>
-                                {result[1]}
-                            </Twemoji>
-                        );
-                    }
-                }
-            ]
-        )(props.config.text));
-    }, [props.config.text]);
 
     function styleNumber(num) {
         let div = num / 1000000;
@@ -90,15 +59,10 @@ function Tweet(props) {
                 </div>
             </div>
             <div className="tweet-text">
-                {typeof text !== "undefined" && text !== "" && <div className="txt">{text}</div>}
-                {typeof props.config.image !== "undefined" && props.config.image !== "" &&
-                    <div className="image-container">
-                        <img src={props.config.image} alt="" />
-                    </div>
-                }
+                <div className="txt">lol that's {props.config.beingReplaced} replacement not minds take it how you want to I am back.</div>
             </div>
             <div className="date-app-details">
-                {props.config.date} · <span className="fake-link app">{props.config.app}</span>
+                {props.config.date}
             </div>
             <div className="rt-likes">
                 <span className="fake-link num-rts"><strong>{styleNumber(props.config.retweets)}</strong> Retweets</span>

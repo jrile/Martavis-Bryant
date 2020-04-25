@@ -4,18 +4,16 @@ import Tweet from '../lib';
 
 function App() {
 
-  const [nickname, setNickname] = useState("LFC");
-  const [name, setName] = useState("Liverpool FC");
-  const [avatar, setAvatar] = useState("https://pbs.twimg.com/profile_images/1202545168542511104/sEunL4Iq_400x400.jpg");
+  const [nickname, setNickname] = useState("ThaBestUNO");
+  const [name, setName] = useState("Martavis Bryant");
+  const [avatar, setAvatar] = useState("https://a.thumbs.redditmedia.com/6lr4pcUCpGx1JAZkxxGZLIjntqTdouzBAgQf2ZMfuc4.jpg");
   const [verified, setVerified] = useState(true);
   const [locked, setLocked] = useState(false);
   const [display, setDisplay] = useState("default");
-  const [text, setText] = useState("🏆 WE’RE CLUB WORLD CHAMPIONS!! 🏆");
-  const [image, setImage] = useState("https://pbs.twimg.com/media/EMVe-JgWwAEwrdw?format=jpg&name=small");
-  const [date, setDate] = useState("9:06 PM · Dec 21, 2019");
-  const [app, setApp] = useState("Twitter Media Studio");
-  const [retweets, setRetweets] = useState(48900);
-  const [likes, setLikes] = useState(180500);
+  const [beingReplaced, setBeingReplaced] = useState("Sammie coates");
+  const [date, setDate] = useState("9:35 PM · 28 Apr 2017");
+  const [retweets, setRetweets] = useState(1187);
+  const [likes, setLikes] = useState(1049);
 
   return (
     <div className="App">
@@ -30,10 +28,8 @@ function App() {
               locked: locked
             },
             display: display, // default, dim or light-out
-            text: text,
-            image: image,
+            beingReplaced: beingReplaced,
             date: date,
-            app: app,
             retweets: retweets,
             likes: likes
           }
@@ -82,21 +78,13 @@ function App() {
                 </select>
               </div>
               <div>
-                <label htmlFor="text">Text</label>
-                <textarea id="text" value={text} onChange={e => setText(e.target.value)}
+                <label htmlFor="text">Who is being replaced?</label>
+                <input type="text" id="text" value={beingReplaced} onChange={e => setBeingReplaced(e.target.value)}
                   maxLength="280"/>
-              </div>
-              <div>
-                <label htmlFor="image">Image</label>
-                <input type="text" id="image" value={image} onChange={e => setImage(e.target.value)} />
               </div>
               <div>
                 <label htmlFor="date">Date</label>
                 <input type="text" id="date" value={date} onChange={e => setDate(e.target.value)} />
-              </div>
-              <div>
-                <label htmlFor="app">App</label>
-                <input type="text" id="app" value={app} onChange={e => setApp(e.target.value)} />
               </div>
               <div>
                 <label htmlFor="retweets">Retweets</label>
