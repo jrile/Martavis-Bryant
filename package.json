@@ -11,6 +11,10 @@
     "demo": "node scripts/demo.js",
     "test": "node scripts/test.js"
   },
+  "engines": {
+    "node": "10.x"
+  },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lluiscamino/fake-tweet.git"
